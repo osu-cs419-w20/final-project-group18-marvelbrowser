@@ -82,8 +82,8 @@ function CharacterPage() {
 
     return (
         <div>
-            {loading && <div>Fetching data...</div>}
-            {error && <div>ERROR!</div>}
+            {loading && <div>Fetching data...<br /></div>}
+            {error && <div>ERROR!<br /></div>}
             <Character info={info} comics={comics} />
         </div>
     )

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import { jsx, css } from '@emotion/core';
 
 function Home() {
     const Home = styled.div`
@@ -16,7 +15,7 @@ function Home() {
 
     return (
         <Home>
-            <img src="https://i.4pcdn.org/tv/1551365034349.jpg"/>
+            <img src="https://i.4pcdn.org/tv/1551365034349.jpg" alt="marvel banner" />
         </Home>
     );
 }
