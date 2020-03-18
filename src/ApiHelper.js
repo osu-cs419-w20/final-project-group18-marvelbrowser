@@ -29,18 +29,55 @@ export function getApiRequestUrl(path) {
  * what we care about
  * 
  * @param {object} data the raw JSON data returned from the API
- * @returns {object}
+ * @returns {Array}
  */
 export function parseCharactersList(data) {
     var characters = [];
     
-    console.log(data.data.results);
-    data.data.results.forEach(c =>  {
+    data.data.results.forEach(c => {
         characters.push({
             id: c.id,
-            name: c.name
+            name: c.name,
+            photoUrl: `${c.thumbnail.path}.${c.thumbnail.extension}`
         });
     });
 
     return characters;
+}
+
+/**
+ * Parse the data for a single character from /characters/:id
+ * 
+ * @param {object} data the raw JSON data returned from the API
+ * @returns {object}
+ */
+export function parseCharacter(data) {
+    var myData = data.data.results[0];
+    var info = {
+        id: myData.id,
+        name: myData.name,
+        photoUrl: `${myData.thumbnail.path}.${myData.thumbnail.extension}`
+    }
+
+    return info;
+}
+
+/**
+ * Parse data from /characters/:id/comics
+ * 
+ * @param {object} data the raw JSON data returned from the API
+ * @returns {Array}
+ */
+export function parseCharacterComicsList(data) {
+    var comics = [];
+
+    data.data.results.forEach(c => {
+        comics.push({
+            id: c.id,
+            title: c.title,
+            photoUrl: `${c.thumbnail.path}.${c.thumbnail.extension}`,
+        })
+    });
+
+    return comics;
 }
