@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch';
 
 import Character from '../components/Character';
 
-import { getApiRequestUrl, parseCharacter, parseCharacterComicsList } from '../ApiHelper';
+import { getApiRequestUrl, parseCharacter, parseComicsList } from '../ApiHelper';
 
 function CharacterPage() {
     const { id } = useParams();
@@ -68,7 +68,7 @@ function CharacterPage() {
 
                 setError(false);
                 setLoading(false);
-                setComics(parseCharacterComicsList(responseBody));
+                setComics(parseComicsList(responseBody));
             }
 
             fetchInfo();

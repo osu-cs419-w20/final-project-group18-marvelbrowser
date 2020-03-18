@@ -63,12 +63,12 @@ export function parseCharacter(data) {
 }
 
 /**
- * Parse data from /characters/:id/comics
+ * Parse data from /characters/:id/comics OR /comics
  * 
  * @param {object} data the raw JSON data returned from the API
  * @returns {Array}
  */
-export function parseCharacterComicsList(data) {
+export function parseComicsList(data) {
     var comics = [];
 
     data.data.results.forEach(c => {
@@ -76,7 +76,8 @@ export function parseCharacterComicsList(data) {
             id: c.id,
             title: c.title,
             photoUrl: `${c.thumbnail.path}.${c.thumbnail.extension}`,
-        })
+            releaseDate: Date.parse(c.dates.find(d => d.type === "onsaleDate").date)
+        });
     });
 
     return comics;
