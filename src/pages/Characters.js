@@ -16,7 +16,7 @@ function Characters(props) {
             const controller = new AbortController();
 
             async function fetchCharacters() {
-                let responseBody = {***REMOVED***
+                let responseBody = {};
                 setLoading(true);
 
                 try {
@@ -45,7 +45,7 @@ function Characters(props) {
             setDoFetch(false);
             return () => {
                 controller.abort();
-            ***REMOVED***
+            };
         }
     }, [ doFetch ]);
 

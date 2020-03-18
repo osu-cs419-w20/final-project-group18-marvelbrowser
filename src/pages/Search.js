@@ -59,7 +59,7 @@ function Comics() {
             // Prep URL for Comic Search
             if (formCategory==="/comics") {
                 async function fetchComics() {
-                    let responseBody = {***REMOVED***
+                    let responseBody = {};
                     setLoading(true);
     
                     try {
@@ -96,7 +96,7 @@ function Comics() {
                 var url = getApiRequestUrl(formCategory);
                 url += ""
                 async function fetchCharacters() {
-                    let responseBody = {***REMOVED***
+                    let responseBody = {};
                     setLoading(true);
     
                     try {
@@ -132,7 +132,7 @@ function Comics() {
             setDoFetch(false);
             return () => {
                 controller.abort();
-            ***REMOVED***
+            };
         }
     }, [ doFetch ]);
 

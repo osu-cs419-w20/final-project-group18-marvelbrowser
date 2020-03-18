@@ -20,7 +20,7 @@ function ComicPage() {
             const controller = new AbortController();
 
             async function fetchInfo() {
-                let responseBody = {***REMOVED***
+                let responseBody = {};
                 setLoading(true);
 
                 try {
@@ -44,7 +44,7 @@ function ComicPage() {
             }
             
             async function fetchCharacterList() {
-                let responseBody = {***REMOVED***
+                let responseBody = {};
                 setLoading(true);
 
                 try {
@@ -74,7 +74,7 @@ function ComicPage() {
             setDoFetch(false);
             return () => {
                 controller.abort();
-            ***REMOVED***
+            };
         }
     }, [ doFetch, id ]);
 
