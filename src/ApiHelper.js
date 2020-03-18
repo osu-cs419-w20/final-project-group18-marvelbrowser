@@ -26,7 +26,7 @@ export function getApiRequestUrl(path) {
 
 /**
  * Parse the data from the /characters endpoint by only saving
- * what we care about
+ * what we care about (OR from /comics/:id/characters)
  * 
  * @param {object} data the raw JSON data returned from the API
  * @returns {Array}
@@ -63,6 +63,25 @@ export function parseCharacter(data) {
 }
 
 /**
+ * Parse the data for a single comic from /comics/:id
+ * 
+ * @param {object} data the raw JSON data returned from the API
+ * @returns {object}
+ */
+export function parseComic(data) {
+    var myData = data.data.results[0];
+    var info = {
+        id: myData.id,
+        title: myData.title,
+        photoUrl: `${myData.thumbnail.path}.${myData.thumbnail.extension}`,
+        description: myData.description,
+        releaseDate: Date.parse(myData.dates.find(d => d.type === "onsaleDate").date)
+    }
+
+    return info;
+}
+
+/**
  * Parse data from /characters/:id/comics OR /comics
  * 
  * @param {object} data the raw JSON data returned from the API
@@ -76,7 +95,8 @@ export function parseComicsList(data) {
             id: c.id,
             title: c.title,
             photoUrl: `${c.thumbnail.path}.${c.thumbnail.extension}`,
-            releaseDate: Date.parse(c.dates.find(d => d.type === "onsaleDate").date)
+            releaseDate: Date.parse(c.dates.find(d => d.type === "onsaleDate").date),
+            description: c.description
         });
     });
 

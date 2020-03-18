@@ -11,6 +11,7 @@ import Characters from './pages/Characters';
 import CharactersPage from './pages/CharacterPage';
 import News from './pages/News';
 import Comics from './pages/Comics';
+import ComicPage from './pages/ComicPage';
 
 function App() {
     const Main = styled.main`
@@ -27,6 +28,7 @@ function App() {
                     <Route exact path="/characters"><Characters /></Route>
                     <Route path="/characters/:id"><CharactersPage /></Route>
                     <Route exact path="/comics"><Comics /></Route>
+                    <Route path="/comics/:id"><ComicPage /></Route>
                     <Route path="/about"><About /></Route>
                     
                 </Switch>
