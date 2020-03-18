@@ -1,7 +1,7 @@
 import md5 from 'md5';
 import urljoin from 'url-join';
 
-import ApiKey from './apikey';
+import ApiKey from './apikey.tpl.js';
 
 /**
  * Get a full URL to communicate with the Marvel API
