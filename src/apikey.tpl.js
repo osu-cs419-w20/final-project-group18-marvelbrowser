@@ -1,6 +1,6 @@
-var APIKey = {
+var ApiKey = {
     publicKey: "",
     privateKey: ""
 };
 
-export default APIKey;
+export default ApiKey;

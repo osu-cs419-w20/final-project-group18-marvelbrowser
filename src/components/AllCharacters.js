@@ -3,10 +3,11 @@ import React from 'react';
 import CharacterListEntry from './CharacterListEntry';
 
 function AllCharacters(props) {
-    var list = props.characters.array.map(c => {
+    console.log(props.characters);
+    var list = props.characters.map(c => {
         return (
             <li key={c.id}>
-                <CharacterListEntry props={c} />
+                <CharacterListEntry character={c} />
             </li>
         )
     });
