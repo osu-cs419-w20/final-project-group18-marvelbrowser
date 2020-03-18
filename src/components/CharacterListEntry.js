@@ -1,11 +1,11 @@
 import React from 'react';
 
-function CharacterListEntry({ id, name }) {
+function CharacterListEntry(props) {
     return (
         <div>
-            <a href={`/characters/${id}`}>{name}</a>
+            <a href={`/characters/${props.character.id}`}>{props.character.name}</a>
         </div>
-    )
+    );
 }
 
 export default CharacterListEntry;
