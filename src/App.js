@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Switch, Route } from 'react-router-dom';
 import styled from '@emotion/styled/macro';
 
@@ -6,7 +7,7 @@ import Navbar from './components/Navbar';
 
 import About from './pages/About';
 import Home from './pages/Home';
-import Characters from './pages/Characters.js';
+import Characters from './pages/Characters';
 import News from './pages/News';
 
 function App() {
