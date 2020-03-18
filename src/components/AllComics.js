@@ -1,6 +1,5 @@
 /** @jsx jsx */
 
-import React from 'react';
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled/macro';
 
@@ -14,7 +13,6 @@ const Content = styled.div`
 `;
 
 function AllComics(props) {
-    console.log(props.comics);
     var list = props.comics.map(c => {
         return (
             <div key={c.id}>

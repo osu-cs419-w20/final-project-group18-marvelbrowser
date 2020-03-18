@@ -1,23 +1,30 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+import styled from '@emotion/styled/macro';
 
 import CharacterListEntry from './CharacterListEntry';
 
+const Content = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;
+`;
+
 function AllCharacters(props) {
-    console.log(props.characters);
     var list = props.characters.map(c => {
         return (
-            <li key={c.id}>
+            <div key={c.id}>
                 <CharacterListEntry character={c} />
-            </li>
+            </div>
         )
     });
 
     return (
-        <div>
-            <ul>
-                {list}
-            </ul>
-        </div>
+        <Content>
+            {list}
+        </Content>
     );
 }
 
