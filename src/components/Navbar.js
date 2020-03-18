@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled/macro';
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 
 function Navbar() {
-
     const Nav = styled.nav`
         background-color: black;
         overflow: hidden;
@@ -37,12 +36,13 @@ function Navbar() {
 
     return (
         <Nav>
-            <NavLink exact to="/"><img src="/marvel.jpg" alt="marvel logo"/></NavLink>
+            <NavLink exact to="/"><img src="https://lh3.googleusercontent.com/proxy/xCQUEJPAhd1EbsErefc0gqcC9drrBwPoDmOnLN6b8kIaTUVhKAHbMlnXBup3JKLNL6VJ2MQpyqh-zeRKCGoXyhnAhjnHQlM5dJey1-JyNO2SlPODka2vDO8tr9P2-t5s_qD0mXRz"/></NavLink>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/news">News</NavLink>
             <NavLink to="/characters">Characters</NavLink>
             <NavLink to="/comics">Comics</NavLink>
             <NavLink to="/about">About</NavLink>
+            <NavLink to="/search">Search</NavLink>
         </Nav>
     );
 }

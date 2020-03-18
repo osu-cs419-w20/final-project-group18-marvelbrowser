@@ -16,7 +16,7 @@ function Comics() {
             const controller = new AbortController();
 
             async function fetchCharacters() {
-                let responseBody = {***REMOVED***
+                let responseBody = {};
                 setLoading(true);
 
                 try {
@@ -46,7 +46,7 @@ function Comics() {
             setDoFetch(false);
             return () => {
                 controller.abort();
-            ***REMOVED***
+            };
         }
     }, [ doFetch ]);
 
