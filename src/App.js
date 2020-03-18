@@ -9,6 +9,7 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Characters from './pages/Characters';
 import News from './pages/News';
+import Comics from './pages/Comics';
 
 function App() {
     const Main = styled.main`
@@ -23,6 +24,7 @@ function App() {
                     <Route exact path="/"><Home /></Route>
                     <Route path="/news"><News /></Route>
                     <Route path="/characters"><Characters /></Route>
+                    <Route path="/comics"><Comics /></Route>
                     <Route path="/about"><About /></Route>
                     
                 </Switch>
