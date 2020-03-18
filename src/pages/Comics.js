@@ -52,7 +52,7 @@ function Comics() {
 
     return (
         <div>
-            <h1>Please select a comic</h1>
+            <h1>Comics released within the last week</h1>
             <br />
             {loading && <div>Fetching data...<br /></div>}
             {error && <div>ERROR!<br /></div>}

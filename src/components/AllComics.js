@@ -1,23 +1,30 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+import styled from '@emotion/styled/macro';
 
 import ComicListEntry from './ComicListEntry';
 
+const Content = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;
+`;
+
 function AllComics(props) {
-    console.log(props.comics);
     var list = props.comics.map(c => {
         return (
-            <li key={c.id}>
+            <div key={c.id}>
                 <ComicListEntry comic={c} />
-            </li>
+            </div>
         )
     });
 
     return (
-        <div>
-            <ul>
-                {list}
-            </ul>
-        </div>
+        <Content>
+            {list}
+        </Content>
     );
 }
 
