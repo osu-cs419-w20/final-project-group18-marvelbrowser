@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, useParams, useRouteMatch } from 'react-router-dom';
 import fetch from 'isomorphic-unfetch';
 
 import AllCharacters from '../components/AllCharacters';
-import Character from '../components/Character';
 
 import { getApiRequestUrl, parseCharactersList } from '../ApiHelper';
 
-function Characters() {
-    const { id } = useParams();
-    const { path } = useRouteMatch();
-
+function Characters(props) {
     const [ characters, setCharacters ] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ error, setError ] = useState(false);
@@ -18,7 +13,6 @@ function Characters() {
 
     useEffect(() => {
         if (doFetch) {
-            // let ignore = false;
             const controller = new AbortController();
 
             async function fetchCharacters() {
@@ -42,43 +36,28 @@ function Characters() {
                     }
                 }
 
-                // if (!ignore) {
-                    setError(false);
-                    setLoading(false);
-                    setCharacters(parseCharactersList(responseBody));
-                // } else {
-                //     console.log("ignoring");
-                // }
+                setError(false);
+                setLoading(false);
+                setCharacters(parseCharactersList(responseBody));
             }
 
             fetchCharacters();
             setDoFetch(false);
             return () => {
                 controller.abort();
-                // ignore = true;
             };
         }
     }, [ doFetch ]);
 
-    if (id) {
-        // render a single character
-    } else {
-        // render the list
-        return (
-			<Switch>
-				<Route exact path={`${path}`}>
-					<h1>Please select a character</h1>
-                    <br />
-                    {loading && <div>Fetching data...<br /></div>}
-                    {error && <div>ERROR!<br /></div>}
-                    <AllCharacters characters={characters} />
-				</Route>
-				<Route path={`${path}/:id`}>
-					<Character />
-				</Route>
-			</Switch>
-		);
-    }
+    return (
+        <div>
+            <h1>Please select a character</h1>
+            <br />
+            {loading && <div>Fetching data...<br /></div>}
+            {error && <div>ERROR!<br /></div>}
+            <AllCharacters characters={characters} />
+        </div>
+    );
 }
 
 export default Characters;

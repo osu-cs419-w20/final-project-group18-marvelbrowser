@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import About from './pages/About';
 import Home from './pages/Home';
 import Characters from './pages/Characters';
+import CharactersPage from './pages/CharacterPage';
 import News from './pages/News';
 import Comics from './pages/Comics';
 
@@ -23,8 +24,9 @@ function App() {
                 <Switch>
                     <Route exact path="/"><Home /></Route>
                     <Route path="/news"><News /></Route>
-                    <Route path="/characters"><Characters /></Route>
-                    <Route path="/comics"><Comics /></Route>
+                    <Route exact path="/characters"><Characters /></Route>
+                    <Route path="/characters/:id"><CharactersPage /></Route>
+                    <Route exact path="/comics"><Comics /></Route>
                     <Route path="/about"><About /></Route>
                     
                 </Switch>
