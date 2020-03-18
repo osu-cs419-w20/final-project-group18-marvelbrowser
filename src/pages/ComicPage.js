@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import fetch from 'isomorphic-unfetch';
 
-import Character from '../components/Character';
+import Comic from '../components/Comic';
 
-import { getApiRequestUrl, parseCharacter, parseComicsList } from '../ApiHelper';
+import { getApiRequestUrl, parseComic, parseCharactersList } from '../ApiHelper';
 
-function CharacterPage() {
+function ComicPage() {
     const { id } = useParams();
 
     const [ info, setInfo ] = useState({});
-    const [ comics, setComics ] = useState([]);
+    const [ characters, setCharacters ] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ error, setError ] = useState(false);
     const [ doFetch, setDoFetch ] = useState(true);
@@ -24,7 +24,7 @@ function CharacterPage() {
                 setLoading(true);
 
                 try {
-                    const url = getApiRequestUrl(`/characters/${id}`);
+                    const url = getApiRequestUrl(`/comics/${id}`);
                     console.log(`making request: ${url}`);
                     const response = await fetch(
                         url
@@ -40,15 +40,15 @@ function CharacterPage() {
                     }
                 }
 
-                setInfo(parseCharacter(responseBody));
+                setInfo(parseComic(responseBody));
             }
             
-            async function fetchComicList() {
+            async function fetchCharacterList() {
                 let responseBody = {***REMOVED***
                 setLoading(true);
 
                 try {
-                    const url = getApiRequestUrl(`/characters/${id}/comics`);
+                    const url = getApiRequestUrl(`/comics/${id}/characters`);
                     console.log(`making request: ${url}`);
                     const response = await fetch(
                         url
@@ -66,11 +66,11 @@ function CharacterPage() {
 
                 setError(false);
                 setLoading(false);
-                setComics(parseComicsList(responseBody));
+                setCharacters(parseCharactersList(responseBody));
             }
 
             fetchInfo();
-            fetchComicList();
+            fetchCharacterList();
             setDoFetch(false);
             return () => {
                 controller.abort();
@@ -82,9 +82,9 @@ function CharacterPage() {
         <div>
             {loading && <div>Fetching data...<br /></div>}
             {error && <div>ERROR!<br /></div>}
-            <Character info={info} comics={comics} />
+            <Comic info={info} characters={characters} />
         </div>
     )
 }
 
-export default CharacterPage;
+export default ComicPage;
