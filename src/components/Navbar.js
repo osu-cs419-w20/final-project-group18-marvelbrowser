@@ -37,7 +37,7 @@ function Navbar() {
 
     return (
         <Nav>
-            <NavLink exact to="/"><img src="https://lh3.googleusercontent.com/proxy/xCQUEJPAhd1EbsErefc0gqcC9drrBwPoDmOnLN6b8kIaTUVhKAHbMlnXBup3JKLNL6VJ2MQpyqh-zeRKCGoXyhnAhjnHQlM5dJey1-JyNO2SlPODka2vDO8tr9P2-t5s_qD0mXRz" alt="marvel logo"/></NavLink>
+            <NavLink exact to="/"><img src="/marvel.jpg" alt="marvel logo"/></NavLink>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/news">News</NavLink>
             <NavLink to="/characters">Characters</NavLink>
