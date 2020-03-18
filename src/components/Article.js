@@ -1,19 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled/macro';
-import { useState, useEffect } from 'react';
 
-
-function Article({ title, text, image }, p_num) {
-    // const [index, setIndex] = useState("Article");
-    const [index, setIndex] = useState(p_num);
+function Article({ title, text, image }) {
     const Title = styled.h1`
-    margin: 0px;
+        margin: 0px;
     `;
-    console.log(p_num);
-    console.log(index);
-
-
 
     const Content = styled.div`
         border: 1px solid black;
@@ -34,7 +26,7 @@ function Article({ title, text, image }, p_num) {
 
     return (
         <Content>
-            <Image><img src={image} /></Image>
+            <Image><img src={image} alt="article icon" /></Image>
             <Title>{title}</Title>
             <p>{text}</p>
         </Content>
