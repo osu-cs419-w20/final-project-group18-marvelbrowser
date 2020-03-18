@@ -42,6 +42,7 @@ function Navbar() {
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/news">News</NavLink>
             <NavLink to="/characters">Characters</NavLink>
+            <NavLink to="/comics">comics</NavLink>
             <NavLink to="/about">About</NavLink>
         </Nav>
     );
