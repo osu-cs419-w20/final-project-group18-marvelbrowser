@@ -22,7 +22,7 @@ function AllComics(props) {
     });
 
     return (
-        <Content>
+        <Content class="flex-container space-between">
             {list}
         </Content>
     );

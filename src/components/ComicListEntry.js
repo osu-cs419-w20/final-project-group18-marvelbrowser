@@ -7,6 +7,14 @@ const Content = styled.div`
     display: block;
     text-align: center;
     margin: 50px;
+    width:33%
+    img{
+        object-fit: contain;
+        background-size: cover;
+    }
+    .contain{
+        object-fit: contain;
+    }
 `;
 
 const Title = styled.span`
@@ -16,7 +24,7 @@ const Title = styled.span`
 function ComicListEntry(props) {
     return (
         <Content>
-            <a href={`/comics/${props.comic.id}`}><img height="400" src={props.comic.photoUrl} alt="comic photo" /></a>
+            <a href={`/comics/${props.comic.id}`}><img width="500vh" height="500vh" class="contain" src={props.comic.photoUrl} alt="comic photo" /></a>
             <br />
             <Title>{props.comic.title}</Title>
         </Content>

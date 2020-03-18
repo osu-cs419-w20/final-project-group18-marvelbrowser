@@ -7,6 +7,7 @@ const Content = styled.div`
     display: block;
     text-align: center;
     margin: 50px;
+    width:33%
 `;
 
 const Title = styled.span`
@@ -16,7 +17,7 @@ const Title = styled.span`
 function CharacterListEntry(props) {
     return (
         <Content>
-            <a href={`/characters/${props.character.id}`}><img height="400" src={props.character.photoUrl} alt="comic photo" /></a>
+            <a href={`/characters/${props.character.id}`}><img width="500vh" height="500vh"src={props.character.photoUrl} alt="comic photo" /></a>
             <br />
             <Title>{props.character.name}</Title>
         </Content>
